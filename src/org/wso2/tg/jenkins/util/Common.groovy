@@ -58,5 +58,5 @@ def getParameters(file) {
 def getTestPlanId(file) {
      def tpyaml = readFile(file)
      def m = tpyaml =~ /(id:)([A-z \n:'0-9\.-]*)(provisioners)/
-    echo "This is the testplan id" + m
+    echo "This is the testplan id" + tpyaml
 }
