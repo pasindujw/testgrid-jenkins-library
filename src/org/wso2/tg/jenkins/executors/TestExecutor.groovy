@@ -95,7 +95,7 @@ def getTestExecutionMap() {
     for (int f = 1; f < parallelExecCount + 1 && f <= files.length; f++) {
         def executor = f
         name = commonUtils.getParameters("${PWD}/test-plans/" + files[f - 1].name)
-        commonUtils.getTestPlanId("${PWD}/test-plans/" + files[f - 1].name,"id")
+        commonUtils.getTestPlanId("${PWD}/test-plans/" + files[f - 1].name)
         echo name
         tests["${name}"] = {
             node {
