@@ -55,8 +55,8 @@ def getParameters(file) {
     return name
 }
 
-def getTestPlanId(file) {
+def getTestPlanId(file, elementName) {
      def tpyaml = readFile(file)
-     def m = tpyaml =~ /(id:)([A-z :'0-9\.-]*)(\n)/
-    echo "This is the testplan id" + m[0][2].trim()
+     def m = tpyaml =~ /(/elementName/:)([A-z :'0-9\.-]*)(\n)/
+    echo "This is the testplan id " + m[0][2].trim()
  }
