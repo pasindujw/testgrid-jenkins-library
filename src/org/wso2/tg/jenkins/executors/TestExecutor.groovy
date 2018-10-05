@@ -95,7 +95,6 @@ def getTestExecutionMap() {
     for (int f = 1; f < parallelExecCount + 1 && f <= files.length; f++) {
         def executor = f
         name = commonUtils.getParameters("${PWD}/test-plans/" + files[f - 1].name)
-        testplanId = commonUtils.getTestPlanId("${PWD}/test-plans/" + files[f - 1].name)
         echo name
         tests["${name}"] = {
             node {
@@ -111,6 +110,7 @@ def getTestExecutionMap() {
                             for (int i = processFileCount * (executor - 1); i < files.length; i++) {
                                 // Execution logic
                                 //int parallelNo = i + 1
+                                testplanId = commonUtils.getTestPlanId("${PWD}/test-plans/" + files[i].name)
                                 echo "run plan"
                                 runPlan(files[i], testplanId)
                             }
@@ -118,6 +118,7 @@ def getTestExecutionMap() {
                             for (int i = 0; i < processFileCount; i++) {
                                 int fileNo = processFileCount * (executor - 1) + i
                                 //int parallelNo = fileNo + 1
+                                testplanId = commonUtils.getTestPlanId("${PWD}/test-plans/" + files[i].name)
                                 echo "run plan"
                                 runPlan(files[fileNo], testplanId)
                             }
