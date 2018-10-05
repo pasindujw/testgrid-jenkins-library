@@ -111,10 +111,11 @@ def getTestExecutionMap() {
                                 // Execution logic
                                 echo "ifblock"
                                 int parallelNo = i + 1
+                                int temp = i
                                 echo "this is parallelNo: " + parallelNo
                                 echo "Asma: filesI.name: " + files[i].name
                                 echo "SameeraW: i: " + i
-                                testplanId = commonUtils.getTestPlanId("${PWD}/test-plans/" + files[i].name)
+                                testplanId = commonUtils.getTestPlanId("${PWD}/test-plans/" + files[temp].name)
                                 echo "run plan"
                                 runPlan(files[i], parallelNo.toString())
                             }
@@ -126,7 +127,7 @@ def getTestExecutionMap() {
                                 echo "this is parallelNo: " + parallelNo
                                 echo "Asma: filesI.name: " + files[i].name
                                 echo "SameeraW: i: " + i
-                                    testplanId = commonUtils.getTestPlanId("${PWD}/test-plans/" + files[i].name)
+                                    testplanId = commonUtils.getTestPlanId("${PWD}/test-plans/" + files[temp].name)
                                 echo "run plan"
                                 runPlan(files[fileNo], testplanId)
                             }
