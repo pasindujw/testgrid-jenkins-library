@@ -113,7 +113,7 @@ def getTestExecutionMap() {
                                 int temp = i
                                 testplanId = commonUtils.getTestPlanId("${PWD}/test-plans/" + files[temp].name)
                                 echo "run plan"
-                                runPlan(files[i], parallelNo.toString())
+                                runPlan(files[i], testplanId)
                             }
                         } else {
                             for (int i = 0; i < processFileCount; i++) {
