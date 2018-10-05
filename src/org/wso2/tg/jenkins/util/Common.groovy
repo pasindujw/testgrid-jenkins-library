@@ -59,4 +59,5 @@ def getTestPlanId(file) {
      def tpyaml = readFile(file)
      def m = tpyaml =~ /(id:)([A-z :'0-9\.-]*)(\n)/
     echo "This is the testplan id " + m[0][2].trim()
+    return m[0][2].trim()
  }
