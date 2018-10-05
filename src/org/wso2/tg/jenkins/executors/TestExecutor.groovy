@@ -109,6 +109,7 @@ def getTestExecutionMap() {
                         if (executor == parallelExecCount) {
                             for (int i = processFileCount * (executor - 1); i < files.length; i++) {
                                 // Execution logic
+                                echo "ifblock"
                                 int parallelNo = i + 1
                                 echo "this is parallelNo: " + parallelNo
                                 echo "Asma: filesI.name: " + files[i].name
@@ -118,6 +119,7 @@ def getTestExecutionMap() {
                                 runPlan(files[i], parallelNo.toString())
                             }
                         } else {
+                            echo "elseblock"
                             for (int i = 0; i < processFileCount; i++) {
                                 int fileNo = processFileCount * (executor - 1) + i
                                 int parallelNo = fileNo + 1
